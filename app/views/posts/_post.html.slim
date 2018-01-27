@@ -1,0 +1,11 @@
+.blog-post
+  h3 = post.title 
+    small 3/6/2015
+  img.thumbnail src="http://placehold.it/850x350"
+  p = post.body
+  .callout
+    ul.menu.simple
+      li
+        a href="#" Author:  #{post.user.name}
+      li
+        a href="#" Comments: #{post.comments.count} 

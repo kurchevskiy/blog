@@ -1,12 +1,69 @@
 doctype html
-html
+html lang="en"
   head
-    title  Blog
-    = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    title == content_for?(:title) ? yield(:title) : "Untitled"
+
+    link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tag
+
   body
-    = render 'shared/header'
-    div class="content"
-      = yield
-    = render 'shared/footer'
+    .top-bar
+      .top-bar-left
+        ul.menu
+          li.menu-text
+            | Yeti Agency
+      .top-bar-right
+        ul.menu
+          li
+            a[href="#"]
+              | One
+          li
+            a[href="#"]
+              | Two
+          li
+            a[href="#"]
+              | Three
+          li
+            a[href="#"]
+              | Four
+    #content.row
+      .medium-8.columns
+        == yield
+      .medium-3.columns[data-sticky-container]
+        .sticky[data-sticky data-anchor="content"]
+          h4
+            | Categories
+          ul
+            li
+              a[href="#"]
+                | Skyler
+            li
+              a[href="#"]
+                | Jesse
+            li
+              a[href="#"]
+                | Mike
+            li
+              a[href="#"]
+                | Holly
+          h4
+            | Authors
+          ul
+            li
+              a[href="#"]
+                | Skyler
+            li
+              a[href="#"]
+                | Jesse
+            li
+              a[href="#"]
+                | Mike
+            li
+              a[href="#"]
+                | Holly
+    = javascript_include_tag "application"

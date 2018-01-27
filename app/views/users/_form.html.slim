@@ -1,0 +1,23 @@
+= form_for @user, html:{class: "grid-x grid-padding-x	"} do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+  = content_tag :lable do
+  	| Имя 
+  	= f.text_field :name
+	= content_tag :lable do
+		| Email
+		= f.text_field :email
+	= content_tag :div, class: "large-6 cell" 
+		= f.check_box :moderator
+		= content_tag :lable, "Модератор"
+	= content_tag :div, class: "large-6 cell" 
+		= f.check_box :creator
+		= content_tag :lable, "Создатель"
+	= content_tag :div, class: "large-6 cell" 
+		= f.check_box :disactive
+		= content_tag :lable, "Активировать"
+  .actions = f.submit

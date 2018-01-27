@@ -1,0 +1,8 @@
+p#notice = notice
+
+= render partial: 'post', locals: {post: @post}
+
+#comments
+	= render partial: 'comment', collection: @comments
+	.row.column
+		= paginate @comments

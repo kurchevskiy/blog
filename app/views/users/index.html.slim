@@ -1,0 +1,23 @@
+h1 Listing users
+
+table
+  thead
+    tr
+      th Имя
+      th Email
+      th 
+      th
+      
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.name
+        td = user.email
+        td = link_to 'Show', user
+        td = link_to 'Edit', edit_user_path(user)
+        
+
+br
+
+= link_to 'New User', new_user_path
