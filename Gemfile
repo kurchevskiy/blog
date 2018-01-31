@@ -26,9 +26,13 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'slim-rails'
 
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 6.4', '>= 6.4.1.3'
 gem 'kaminari'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-vkontakte'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

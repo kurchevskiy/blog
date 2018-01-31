@@ -1,6 +1,14 @@
-div class="header"
-  ul
-    li
-      = link_to 'Главная', root_path
-    li
-      = link_to 'Профиль', profile_index_path
+.top-bar
+  .top-bar-left
+    ul.menu
+      li.menu-text
+        | Yeti Agency
+  .top-bar-right
+    ul.menu
+      - if user_signed_in?
+        li = link_to current_user.name, edit_user_registration_path
+        li = link_to t('actions.log_out'), destroy_user_session_path, method: :delete
+      - else
+        li = link_to t('actions.sign_in'), new_user_session_path
+        li = link_to t('actions.sign_in_with', name: 'Vkontakte'), user_vkontakte_omniauth_authorize_path
+        li = link_to t('actions.sign_up'), new_user_registration_path

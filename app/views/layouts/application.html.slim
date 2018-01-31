@@ -6,36 +6,18 @@ html lang="en"
 
     title == content_for?(:title) ? yield(:title) : "Untitled"
 
-    link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"
     = stylesheet_link_tag "application"
-    = javascript_include_tag "vendor/modernizr"
+    
     = csrf_meta_tag
 
   body
-    .top-bar
-      .top-bar-left
-        ul.menu
-          li.menu-text
-            | Yeti Agency
-      .top-bar-right
-        ul.menu
-          li
-            a[href="#"]
-              | One
-          li
-            a[href="#"]
-              | Two
-          li
-            a[href="#"]
-              | Three
-          li
-            a[href="#"]
-              | Four
-    #content.row
+    = render 'shared/header'
+          
+    .row
       .medium-8.columns
         == yield
-      .medium-3.columns[data-sticky-container]
-        .sticky[data-sticky data-anchor="content"]
+      .medium-4.columns
+        .sticky
           h4
             | Categories
           ul

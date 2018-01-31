@@ -1,0 +1,45 @@
+h2
+  | Edit 
+  = resource_name.to_s.humanize
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = devise_error_messages!
+  .row.grid-x.grid-padding-x
+    .medium-6.cell
+      = content_tag :label do
+        = t 'activerecord.attributes.user.name'
+        = f.text_field :name, autofocus: true
+    .medium-6.cell
+      = content_tag :label do
+        = t 'activerecord.attributes.user.email'
+        = f.text_field :email
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          div
+          | Currently waiting confirmation for: 
+            = resource.unconfirmed_email
+    .medium-6.cell
+      = content_tag :label do
+        = t 'activerecord.attributes.user.password'
+        br
+        i
+          = t 'activerecord.attributes.user.blank.password'
+        br
+        = f.password_field :password, autocomplete: "off"
+    .medium-6.cell
+      = f.label :password_confirmation do
+        = t 'activerecord.attributes.user.password_confirmation'
+        - if @minimum_password_length
+          br
+          em
+            = t 'activerecord.attributes.user.blank.password_confirmation', lengths: @minimum_password_length
+          br
+          = f.password_field :password_confirmation, autocomplete: "off"
+    .medium-6.cell
+      = content_tag :label do
+        = t 'activerecord.attributes.user.current_password'
+        br
+        i
+          = t 'activerecord.attributes.user.blank.current_password'
+        br
+        = f.password_field :current_password, autocomplete: "off"
+  .actions
+    = f.submit t('actions.update')

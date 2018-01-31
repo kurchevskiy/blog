@@ -1,0 +1,29 @@
+ru:
+  actions:
+    update: Обновить
+    sign_in: Войти
+    sign_in_with: "Войти через %{name}"
+    sign_up: Регистрация
+    log_out: Выйти
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              blank: "обязателен для подтверждения"
+            password:
+              too_short: "слишком короткий"
+            password_confirmation:
+              confirmation: "Должно совпадать с паролем"
+    attributes:
+      user:
+        password: Пароль
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        email: "Email"
+        name: "ФИО"
+        blank:
+          password: "(оставьте как есть если не хотите изменить)"
+          password_confirmation: "минимальная длина %{lengths}"
+          current_password: "(введите текущий пароль для подтверждения изменений)"
