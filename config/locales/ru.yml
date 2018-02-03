@@ -6,13 +6,22 @@ ru:
     sign_up: Регистрация
     log_out: Выйти
   activerecord:
+    models:
+      user:        Пользователи
+      post:        Сообщения
     errors:
       models:
         user:
           attributes:
+            name:
+              too_short: слишком короткий
+            email:
+              blank: не верный формат
+              too_short: слишком короткий
             current_password:
               blank: "обязателен для подтверждения"
             password:
+              blank: не верный формат
               too_short: "слишком короткий"
             password_confirmation:
               confirmation: "Должно совпадать с паролем"

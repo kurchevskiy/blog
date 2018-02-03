@@ -6,7 +6,7 @@ html lang="en"
 
     title == content_for?(:title) ? yield(:title) : "Untitled"
 
-    = stylesheet_link_tag "application"
+    = stylesheet_pack_tag "application"
     
     = csrf_meta_tag
 
@@ -48,4 +48,4 @@ html lang="en"
             li
               a[href="#"]
                 | Holly
-    = javascript_include_tag "application"
+    = javascript_pack_tag "application"
